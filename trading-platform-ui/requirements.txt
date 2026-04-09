@@ -12,7 +12,9 @@ Flask-Migrate
 python-dotenv
 
 # PostgreSQL database adapter
-psycopg2-binary
+psycopg2-binary==2.9.9
 
-requests
+requests==2.21.0
+
+PyYAML==5.3.1
 

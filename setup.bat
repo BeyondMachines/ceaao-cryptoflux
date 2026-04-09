@@ -162,9 +162,9 @@ echo  CLEANING UP
 echo ============================================================
 echo  This will remove all containers, data volumes, and cryptoflux images!
 echo  The application will need to rebuild images on next startup.
-set /p confirm="Are you sure? (y/N): "
+set /p confirm="Are you sure? (Y/N): "
 
-if /i "%confirm%"=="y" (
+if /i "%confirm%"=="Y" (
     echo  Stopping and removing containers and volumes...
     if exist docker-compose.yml (
         !DOCKER_COMPOSE! -f docker-compose.yml down -v
