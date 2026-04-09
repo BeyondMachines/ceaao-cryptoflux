@@ -111,15 +111,15 @@ stop_services() {
         $DOCKER_COMPOSE -f docker-compose.yml down
     fi
     
-    print_color $GREEN "✅ All services stopped"
+    print_color $GREEN "All services stopped"
 }
 
 # Function to clean up (remove containers and volumes)
 cleanup() {
-    print_header "🧹 CLEANING UP"
+    print_header "CLEANING UP"
     print_color $YELLOW "This will remove all containers, data volumes, and banking-app images!"
     print_color $YELLOW "The application will need to rebuild images on next startup."
-    read -p "Are you sure? (y/N): " -n 1 -r
+    read -p "Are you sure? (Y/N): " -n 1 -r
     echo
     
     if [[ $REPLY =~ ^[Yy]$ ]]; then
