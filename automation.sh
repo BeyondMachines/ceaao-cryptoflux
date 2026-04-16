@@ -18,8 +18,8 @@ echo ""
 while true; do
     current_time=$(date '+%Y-%m-%d %H:%M:%S')
     
-    # Every 10 minutes - Calculate liquidity
-    if [ $((minute_counter % 10)) -eq 0 ]; then
+    # Every 5 minutes - Calculate liquidity
+    if [ $((minute_counter % 5)) -eq 0 ]; then
         echo "[$current_time] 📊 Generating transactions..."
         docker exec $CONTAINER_NAME python scripts/batch_calculation.py
         echo ""
@@ -33,13 +33,13 @@ while true; do
     fi
     
     # Increment counter and sleep
-    minute_counter=$((minute_counter + 15))
+    minute_counter=$((minute_counter + 5))
     
     # Reset counter after 1 day to prevent overflow
     if [ $minute_counter -ge 1440 ]; then
         minute_counter=0
     fi
     
-    # Sleep for 15 minutes (900 seconds)
-    sleep 600
+    # Sleep for 5 minutes (300 seconds)
+    sleep 300
 done
